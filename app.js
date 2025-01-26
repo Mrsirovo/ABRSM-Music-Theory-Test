@@ -79,7 +79,7 @@ function generateQuestions(grade) {
         type: isImageQuestion ? "image" : "text",
         content: isImageQuestion
           ? { image: correctTerm.image }
-          : { text: `“${correctTerm.term}”对应的符号是？` },
+          : { text: `“${correctTerm.term}”的意思是？` },
         options: shuffleArray(options),
         correctAnswer: correctTerm.definition,
       });
@@ -111,22 +111,30 @@ function showNextQuestion() {
 
 // 检查答案
 function checkAnswer(selected) {
-  const question = currentExam.questions[currentExam.currentIndex];
-  const isCorrect = selected === question.correctAnswer;
-
-  if (isCorrect) currentExam.score++;
-
-  showFeedback(isCorrect, question.correctAnswer);
-
-  setTimeout(() => {
-    currentExam.currentIndex++;
-    if (currentExam.currentIndex < currentExam.questions.length) {
-      showNextQuestion();
-    } else {
-      showFinalResult();
-    }
-  }, 1500);
-}
+    // 禁用所有选项按钮
+    const optionButtons = document.querySelectorAll(".option-btn");
+    optionButtons.forEach((button) => {
+      button.disabled = true; // 禁用按钮
+      button.style.opacity = "0.6"; // 降低按钮透明度
+      button.style.cursor = "not-allowed"; // 更改鼠标样式
+    });
+  
+    const question = currentExam.questions[currentExam.currentIndex];
+    const isCorrect = selected === question.correctAnswer;
+  
+    if (isCorrect) currentExam.score++;
+  
+    showFeedback(isCorrect, question.correctAnswer);
+  
+    setTimeout(() => {
+      currentExam.currentIndex++;
+      if (currentExam.currentIndex < currentExam.questions.length) {
+        showNextQuestion();
+      } else {
+        showFinalResult();
+      }
+    }, 1500); // 1.5 秒后跳转到下一题
+  }
 
 // 显示反馈
 function showFeedback(isCorrect, correctAnswer) {
