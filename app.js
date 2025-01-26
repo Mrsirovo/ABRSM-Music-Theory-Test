@@ -138,8 +138,13 @@ function checkAnswer(selected) {
   
     if (isCorrect) currentExam.score++;
   
-    showFeedback(isCorrect, question.correctAnswer);
-  
+    RightOrFalse = showFeedback(isCorrect, question.correctAnswer);
+    delay_time = 1000;
+
+    if (RightOrFalse == false) {
+        delay_time = 3000;
+    }
+
     setTimeout(() => {
       currentExam.currentIndex++;
       if (currentExam.currentIndex < currentExam.questions.length) {
@@ -147,7 +152,7 @@ function checkAnswer(selected) {
       } else {
         showFinalResult();
       }
-    }, 1500); // 1.5 秒后跳转到下一题
+    }, delay_time);
   }
 
 // 显示反馈
@@ -159,6 +164,7 @@ function showFeedback(isCorrect, correctAnswer) {
     : `❌ 回答错误！正确答案：${correctAnswer}`;
 
   document.getElementById("question-container").appendChild(feedback);
+  return isCorrect
 }
 
 // 显示最终结果
