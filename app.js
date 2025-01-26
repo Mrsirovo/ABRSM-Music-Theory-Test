@@ -52,19 +52,33 @@ function generateQuestions(grade) {
     const library = termLibraries[grade];
     const questions = [];
   
-    // 确保每个分类至少有一定数量的术语
+    // 获取文字题和图片题的数量
     const textTerms = library.textTerms || [];
     const imageTerms = library.imageTerms || [];
+    const hasEnoughTextTerms = textTerms.length >= 4;
+    const hasEnoughImageTerms = imageTerms.length >= 4;
   
-    if (textTerms.length < 4 || imageTerms.length < 4) {
+    // 动态调整题目生成策略
+    if (!hasEnoughTextTerms && !hasEnoughImageTerms) {
       console.error(`等级 ${grade} 的题库数据不足，无法生成题目`);
       return questions;
     }
   
     // 生成固定数量的题目（10 道）
     for (let i = 0; i < 10; i++) {
-      // 交替生成文字题和图片题
-      const isImageQuestion = i % 2 === 0; // 交替生成
+      let isImageQuestion;
+  
+      // 如果两种题型都足够，随机选择一种
+      if (hasEnoughTextTerms && hasEnoughImageTerms) {
+        isImageQuestion = Math.random() > 0.5;
+      }
+      // 如果只有一种题型足够，强制使用该题型
+      else if (hasEnoughTextTerms) {
+        isImageQuestion = false;
+      } else {
+        isImageQuestion = true;
+      }
+  
       const termCategory = isImageQuestion ? "imageTerms" : "textTerms";
       const terms = library[termCategory];
   
@@ -79,7 +93,7 @@ function generateQuestions(grade) {
         type: isImageQuestion ? "image" : "text",
         content: isImageQuestion
           ? { image: correctTerm.image }
-          : { text: `“${correctTerm.term}”的意思是？` },
+          : { text: `“${correctTerm.term}”对应的符号是？` },
         options: shuffleArray(options),
         correctAnswer: correctTerm.definition,
       });
@@ -179,15 +193,15 @@ function generateOptions(correctTerm, termPool) {
     }
   
     return [...options];
-  }
+}
 
-  function shuffleArray(array) {
+function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-  }
+}
 // 初始化
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM加载完成");

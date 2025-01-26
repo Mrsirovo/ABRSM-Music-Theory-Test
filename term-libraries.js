@@ -84,6 +84,35 @@ const termLibraries = {
             { term: "first&second time bar", definition: "first/second-time bar (in a repeated section)", image: "images/first&second time bar.png" },
         ],
     },
+    '3': {
+        textTerms: [
+            { term: "sforzando, sforzato (sf, sfz)", definition: "forced, accented" },
+            { term: "andantino", definition: "slightly faster than andante (but may also mean slightly slower)" },
+            { term: "prestissimo", definition: "very fast" },
+            { term: "agitato", definition: "agitated" },
+            { term: "animato", definition: "animated, lively" },
+            { term: "con forza", definition: "with force" },
+            { term: "energico", definition: "energetic" },
+            { term: "giocoso", definition: "playful, merry" },
+            { term: "leggiero", definition: "light" },
+            { term: "maestoso", definition: "majestic" },
+            { term: "marcato (marc.)", definition: "emphatic, accented" },
+            { term: "pesante", definition: "heavy" },
+            { term: "risoluto", definition: "bold, strong" },
+            { term: "scherzando", definition: "playful, joking" },
+            { term: "semplice", definition: "simple, plain" },
+            { term: "sostenuto (sost.)", definition: "sustained" },
+            { term: "tranquillo", definition: "calm" },
+            { term: "triste, tristamente", definition: "sad, sorrowful" },
+            { term: "ben", definition: "well" },
+            { term: "prima, primo", definition: "first" },
+            { term: "sempre", definition: "always" },
+            { term: "simile", definition: "in the same way" },
+            { term: "subito (sub.)", definition: "suddenly" },
+        ],
+        imageTerms: [
+        ],
+    },
 };
 
 console.log("术语库加载完成，可用等级:", Object.keys(termLibraries));
