@@ -36,7 +36,11 @@ const termLibraries = {
       { term: "crescendo", definition: "gradually getting louder", image: "images/crescendo.png" },
       { term: "decrescendo", definition: "gradually getting quiter", image: "images/decrescendo.png" },
       { term: "accent", definition: "accent the note (play with emphasis)", image: "images/accent.png" },
-      { term: "高音号", definition: "G谱号", image: "images/clef1.png" },
+      { term: "slur", definition: "slur; perform smoothly", image: "images/slur.png" },
+      { term: "tie", definition: "tie; hold for the value of both notes", image: "images/tie.png" },
+      { term: "staccato", definition: "staccato; detached", image: "images/staccato.png" },
+      { term: "pause", definition: "pause on the note or rest", image: "images/pause.png" },
+      { term: "repeat", definition: "repeat the section between the two signs", image: "images/repeat.png" },
     ],
   },
   '2': {
