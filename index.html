@@ -96,6 +96,30 @@
     from { opacity: 0; }
     to { opacity: 1; }
     }
+    .restart-btn {
+    padding: 15px 30px;
+    background: #28a745; /* 绿色背景 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto;
+    display: block;
+    }
+    .restart-btn:hover {
+    background: #218838; /* 深绿色悬停效果 */
+    transform: translateY(-2px);
+    }
+    .restart-btn:active {
+    background: #1e7e34; /* 更深的绿色点击效果 */
+    transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -120,11 +144,10 @@
 
     <!-- 结果界面 -->
     <div class="result-screen">
-      <h1>考试结束</h1>
-      <div class="result" id="result"></div>
-      <button onclick="restart()">重新开始</button>
+        <h1>考试结束</h1>
+        <div class="result" id="result"></div>
+        <button class="restart-btn" onclick="restart()">重新开始</button>
     </div>
-  </div>
 
   <!-- 独立术语库文件 -->
   <script src="term-libraries.js"></script>

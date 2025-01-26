@@ -27,7 +27,7 @@ function initializeExam(grade) {
   console.log("当前题库结构:", termLibraries);
 
   if (!termLibraries[grade]) {
-    alert("题库不存在！请检查控制台日志");
+    alert("题库不存在！请等待题库更新");
     console.error(`未找到等级 ${grade} 的题库`);
     return;
   }
@@ -93,7 +93,7 @@ function generateQuestions(grade) {
         type: isImageQuestion ? "image" : "text",
         content: isImageQuestion
           ? { image: correctTerm.image }
-          : { text: `“${correctTerm.term}”对应的符号是？` },
+          : { text: `“${correctTerm.term}”` },
         options: shuffleArray(options),
         correctAnswer: correctTerm.definition,
       });
@@ -176,14 +176,31 @@ function showFinalResult() {
 
 // 重新开始
 function restart() {
-  document.querySelector(".result-screen").classList.remove("active");
-  document.querySelector(".start-screen").classList.add("active");
-  currentExam = {
-    grade: null,
-    questions: [],
-    currentIndex: 0,
-    score: 0,
-  };
+    console.log("重新开始考试...");
+  
+    // 隐藏结果界面
+    document.querySelector(".result-screen").classList.remove("active");
+  
+    // 显示初始界面
+    document.querySelector(".start-screen").classList.add("active");
+  
+    // 重置考试状态
+    currentExam = {
+      grade: null,
+      questions: [],
+      currentIndex: 0,
+      score: 0,
+    };
+  
+    // 清空题目容器
+    const questionContainer = document.getElementById("question-container");
+    questionContainer.innerHTML = "";
+  
+    // 清空结果容器
+    const resultContainer = document.getElementById("result");
+    resultContainer.textContent = "";
+  
+    console.log("考试状态已重置，返回初始界面");
 }
 
 // 工具函数
