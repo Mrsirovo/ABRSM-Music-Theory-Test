@@ -53,7 +53,7 @@ termLibraries = {
             { term: "presto", definition: "急板（比allegro更快）" },
             { term: "vivace, vivo", definition: "活泼的，快速的" },
             { term: "lento", definition: "慢板（比adagio更慢）" },
-            { term: "largo", definition: "广板（与lento相同或更慢，庄重的）" },
+            { term: "largo", definition: "广板（与lento相同或更慢）" },
             { term: "grave", definition: "庄板（非常慢，庄严的）" },
             { term: "più mosso", definition: "更快，更有动感" },
             { term: "meno mosso", definition: "较慢，减少动感" },
