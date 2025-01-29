@@ -61,9 +61,9 @@ This is an open-source project providing an online test for ABRSM Theory Exams f
 
 ## 许可证 / License
 
-本项目使用 **MIT 许可证**，并附加了**非商业用途**的条款。禁止将本项目用于商业用途。
+本项目使用 **MIT 许可证**。
 
-This project is licensed under the **MIT License**, with an additional clause restricting the use of the project for **non-commercial purposes** only.
+This project is licensed under the **MIT License**.
 
 ## 联系方式 / Contact Information
 
