@@ -123,19 +123,19 @@ termLibraries = {
             { term: "Viola clef and lowest note", definition: "This mostly uses the alto clef and its lowest note is C" },
             { term: "Cello clef and lowest note", definition: "This mostly uses the bass clef and its lowest note is C (one octave lower than the viola)" },
             { term: "Double bass clef and lowest note", definition: "This mostly uses the bass clef and its lowest note is C" },
-            { term: "Strings family's pitch from high to low", definition: "Violin Viola Cello Double bass" },
+            { term: "Strings family's pitch from high to low", definition: "Violin → Viola → Cello → Double bass" },
 
             { term: "Flute clef", definition: "This uses the treble clef" },
             { term: "Oboe clef", definition: "This uses the treble clef and has a similar but slightly lower range to the flute" },
             { term: "Clarinet clef", definition: "This uses the treble clef and goes a little lower than the flute and oboe" },
             { term: "Bassoon clef", definition: "This mostly uses the bass clef" },
-            { term: "Woodwind family's pitch from high to low", definition: "Flute, Oboe, Clarinet, Bassoon" },
+            { term: "Woodwind family's pitch from high to low", definition: "Flute → Oboe → Clarinet → Bassoon" },
 
             { term: "Trumpet clef", definition: "This uses the treble clef" },
             { term: "Horn clef", definition: "This uses the treble clef and is sometimes called the 'French horn'" },
             { term: "Trombone clef", definition: "This mostly uses the bass clef" },
             { term: "Tuba clef", definition: "This uses the bass clef" },
-            { term: "Brass family's pitch from high to low", definition: "Trumpet, Horn, Trombone, Tuba" },
+            { term: "Brass family's pitch from high to low", definition: "Trumpet → Horn → Trombone → Tuba" },
 
             { term: "Definite pitch of Percussion instruments", definition: "Percussion instruments that produce specific musical notes" },
             { term: "Indefinite pitch of Percussion instruments", definition: "Percussion instruments that do not produce specific musical notes" },
@@ -143,7 +143,7 @@ termLibraries = {
             { term: "Side drum pitch", definition: "Plays notes of indefinite pitch and is sometimes called the snare drum" },
             { term: "Bass drum pitch", definition: "Plays notes of indefinite pitch" },
             { term: "Cymbal pitch", definition: "Plays notes of indefinite pitch. Cymbals can either be clashed together or hit with a beater" },
-            { term: "Percussion family's pitch from high to low", definition: "Timpani, Side drum, Bass drum, Cymbals" },
+            { term: "Percussion family's pitch from high to low", definition: "Timpani → Side drum → Bass drum → Cymbals" },
 
             { term: "pizzicato (pizz.)", definition: "pluck with the fingers" },
             { term: "arco", definition: "play with the bow (only used if the player has previously been instructed to pluck)" },
