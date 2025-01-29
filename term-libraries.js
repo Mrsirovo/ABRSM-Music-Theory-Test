@@ -24,7 +24,7 @@ termLibraries = {
             { term: "ritardando(ritard. or rit.)", definition: "gradually getting slower" },
             { term: "a tempo", definition: "in time (resume the original speed)" },
             // More
-            { term: "contabile", definition: "in a singing style" },
+            { term: "cantabile", definition: "in a singing style" },
             { term: "da capo(D.C.)", definition: "repeat from the beginning" },
             { term: "dolce", definition: "sweet" },
             { term: "fine", definition: "the end" },
