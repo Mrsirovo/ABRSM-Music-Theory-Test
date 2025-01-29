@@ -1,6 +1,6 @@
 console.log("术语库开始加载...");
 
-const termLibraries = {
+termLibraries = {
     '1': {
         textTerms: [
             // Dynamic terms
@@ -276,8 +276,6 @@ const termLibraries = {
             { term: "What are the four main voice types in choral music?", definition: "Soprano, alto, tenor, and bass (SATB)" },
             { term: "What is the order of voice types from highest to lowest range in choral music?", definition: "Soprano, alto, tenor, bass" },
             { term: "What are the additional voice types often used in solo vocal music?", definition: "Mezzo-soprano and baritone" },
-            { term: "What is an example of a soprano solo mentioned in the text?", definition: "Mozart’s aria, ‘Der Hölle Rache’ from The Magic Flute" },
-            { term: "What should you listen for in Mozart’s aria ‘Der Hölle Rache’?", definition: "Repeated high Cs and the top F" },
             { term: "What is the range order of all six voice types from highest to lowest?", definition: "Soprano, mezzo-soprano, alto, tenor, baritone, bass" },
             
             { term: "What does 'a niente' mean in dynamics?", definition: "To nothing" },
@@ -325,4 +323,4 @@ const termLibraries = {
     },
 };
 
-console.log("术语库加载完成，可用等级:", Object.keys(termLibraries));
+console.log("英文术语库加载完成，可用等级:", Object.keys(termLibraries));

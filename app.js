@@ -65,7 +65,7 @@ function generateQuestions(grade) {
     }
   
     // 生成固定数量的题目（10 道）
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 2; i++) {
       let isImageQuestion;
   
       // 如果两种题型都足够，随机选择一种

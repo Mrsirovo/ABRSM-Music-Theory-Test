@@ -120,19 +120,42 @@
     background: #1e7e34; /* 更深的绿色点击效果 */
     transform: translateY(0);
     }
+    .language-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .language-btn {
+      padding: 8px 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .language-btn:hover {
+      background: #0056b3;
+    }
   </style>
 </head>
 <body>
+  <div class="language-switcher">
+    <button class="language-btn" id="language-btn">中文</button>
+  </div>
   <div class="container">
     <!-- 开始界面 -->
     <div class="start-screen active">
-      <h1>乐理测试</h1>
+      <h1>Music Theory Test</h1> <!-- 这里不需要 ID，通过类名和标签名获取 -->
       <div class="grade-buttons">
-        <button class="grade-btn" data-grade="1">Grade 1</button>
-        <button class="grade-btn" data-grade="2">Grade 2</button>
-        <button class="grade-btn" data-grade="3">Grade 3</button>
-        <button class="grade-btn" data-grade="4">Grade 4</button>
-        <button class="grade-btn" data-grade="5">Grade 5</button>
+        <button class="grade-btn" data-grade="1" id="Grade 1">Grade 1</button>
+        <button class="grade-btn" data-grade="2" id="Grade 2">Grade 2</button>
+        <button class="grade-btn" data-grade="3" id="Grade 3">Grade 3</button>
+        <button class="grade-btn" data-grade="4" id="Grade 4">Grade 4</button>
+        <button class="grade-btn" data-grade="5" id="Grade 5">Grade 5</button>
       </div>
     </div>
 
@@ -150,7 +173,82 @@
     </div>
 
   <!-- 独立术语库文件 -->
-  <script src="term-libraries.js"></script>
+  <script>
+  let currentLanguage = "en"; // 默认语言为英文
+  // let termLibraries = {}; // 动态加载的术语库
+
+  // 加载术语库文件
+  function loadTermLibrary(language) {
+    const script = document.createElement("script");
+    script.src = language === "en" ? "term-libraries.js" : "term-libraries-ch.js";
+    script.onload = () => {
+      console.log(`术语库加载完成: ${language}`);
+      updateUI(); // 更新界面语言
+    };
+    script.onerror = () => {
+      console.error(`术语库加载失败: ${language}`);
+    };
+    document.body.appendChild(script);
+  }
+
+  // 切换语言
+  function switchLanguage() {
+    currentLanguage = currentLanguage === "en" ? "ch" : "en";
+    loadTermLibrary(currentLanguage);
+  }
+
+  // 更新界面语言
+  function updateUI() {
+    const languageBtn = document.getElementById("language-btn");
+    const mainTitle = document.querySelector(".start-screen h1"); // 修改为通过类名和标签名获取
+    const resultTitle = document.querySelector(".result-screen h1"); // 修改为通过类名和标签名获取
+    const restartBtn = document.querySelector(".restart-btn"); // 修改为通过类名获取
+    const gradeBtn1 = document.getElementById("Grade 1");
+    const gradeBtn2 = document.getElementById("Grade 2");
+    const gradeBtn3 = document.getElementById("Grade 3");
+    const gradeBtn4 = document.getElementById("Grade 4");
+    const gradeBtn5 = document.getElementById("Grade 5");
+
+    if (!languageBtn || !mainTitle || !resultTitle || !restartBtn) {
+      console.error("无法找到需要更新的元素");
+      return;
+    }
+
+    if (currentLanguage === "en") {
+      languageBtn.textContent = "中文";
+      mainTitle.textContent = "Music Theory Test";
+      resultTitle.textContent = "Exam Finished";
+      restartBtn.textContent = "Restart";
+      gradeBtn1.textContent = "Grade 1";
+      gradeBtn2.textContent = "Grade 2";
+      gradeBtn3.textContent = "Grade 3";
+      gradeBtn4.textContent = "Grade 4";
+      gradeBtn5.textContent = "Grade 5";
+    } else {
+      languageBtn.textContent = "English";
+      mainTitle.textContent = "乐理测试";
+      resultTitle.textContent = "考试结束";
+      restartBtn.textContent = "重新开始";
+      gradeBtn1.textContent = "等级 1";
+      gradeBtn2.textContent = "等级 2";
+      gradeBtn3.textContent = "等级 3";
+      gradeBtn4.textContent = "等级 4";
+      gradeBtn5.textContent = "等级 5";
+    }
+  }
+
+  // 初始化语言切换按钮
+  const languageBtn = document.getElementById("language-btn");
+  if (languageBtn) {
+    languageBtn.addEventListener("click", switchLanguage);
+  } else {
+    console.error("无法找到语言切换按钮");
+  }
+
+  // 默认加载英文术语库
+  loadTermLibrary(currentLanguage);
+  </script>
+
   <!-- 主逻辑文件 -->
   <script src="app.js"></script>
 </body>
